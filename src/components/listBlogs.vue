@@ -1,19 +1,9 @@
 <template>
-<!-- for custom directives, the value must be written using single quotations within double quotations -->
-<!-- arguments for custom directives are anything after the ':' -->
   <div id="show-blogs" v-theme:column="'wide'">
-      <!-- show a list of the blogs -->
-      <h1>All Blog Articles</h1>
-      <!-- custom search filter bar -->
+      <h1>List Blog Titles</h1>
       <input type="text" v-model="search" placeholder="search blogs">
       <div class="single-blog" v-for="blog in filteredBlogs" v-bind:key="blog">
-          <!-- don't want to hardcode the blogs but instead showcase them dynamically -->
-          <!-- we can create custom directives for different functionalities -->
-          <!-- we can add filters by adding a pip and the name -->
-          <!-- to add in custom/dynamic id instead of hardcoding -->
-            <router-link v-bind:to="'/blog/' + blog.id">
-              <h2 v-rainbow> {{ blog.title | to-uppercase }} </h2>
-            </router-link>
+          <h2 v-rainbow> {{ blog.title | to-uppercase }} </h2>
           <article>
               {{ blog.body | snippet}}
           </article>
